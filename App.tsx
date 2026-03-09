@@ -390,7 +390,7 @@ const App: React.FC = () => {
       {/* Precision Crop Modal */}
       {isCropping && selectedMedia && (
         <div className="fixed inset-0 z-[100] bg-[#0c0c0c]/98 flex flex-col items-center justify-center p-8 backdrop-blur-3xl animate-reveal">
-          <div className="relative w-full max-w-6xl h-[70vh] bg-black rounded-[2rem] overflow-hidden shadow-[0_60px_120px_-20px_rgba(0,0,0,0.8)] border border-white/5">
+          <div className="relative w-full max-w-6xl h-[70vh] bg-[#0a0a0a] rounded-[2rem] overflow-hidden shadow-[0_60px_120px_-20px_rgba(0,0,0,0.8)] border border-white/5">
             <Cropper
               image={selectedMedia.url}
               crop={crop}
@@ -418,18 +418,18 @@ const App: React.FC = () => {
         </div>
       )}
 
-      <header className="shrink-0 bg-white/70 backdrop-blur-3xl border-b border-gray-100 py-4 px-16 flex justify-between items-center z-[60]">
+      <header className="shrink-0 bg-[#121212]/70 backdrop-blur-3xl border-b border-[#333] py-4 px-16 flex justify-between items-center z-[60]">
         <div className="flex items-center gap-6 cursor-pointer" onClick={handleReset}>
-          <div className="w-10 h-10 bg-[#121212] flex items-center justify-center text-white font-serif text-2xl italic rounded-full shadow-2xl">K</div>
+          <div className="w-10 h-10 bg-white flex items-center justify-center text-[#121212] font-serif text-2xl italic rounded-full shadow-2xl">K</div>
           <div>
-            <h1 className="font-serif text-2xl tracking-tighter leading-none text-[#121212]">Knot Home <span className="text-gray-300 italic font-light">Studio</span></h1>
-            <p className="text-[8px] uppercase tracking-[0.4em] font-bold text-gray-300 mt-1">Professional Content Optimization</p>
+            <h1 className="font-serif text-2xl tracking-tighter leading-none text-white">Knot Home <span className="text-[#888] italic font-light">Studio</span></h1>
+            <p className="text-[8px] uppercase tracking-[0.4em] font-bold text-[#888] mt-1">Professional Content Optimization</p>
           </div>
         </div>
 
         {/* Top Center Aspect Ratio Controls */}
         <div className="flex justify-center">
-          <div className="flex bg-gray-100/50 p-1 rounded-full border border-gray-200 backdrop-blur-sm">
+          <div className="flex bg-[#2a2a2a]/50 p-1 rounded-full border border-[#444] backdrop-blur-sm">
             {ASPECT_RATIOS.map((ratio) => (
               <button
                 key={ratio.label}
@@ -445,8 +445,8 @@ const App: React.FC = () => {
                 }}
                 className={`px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-[0.1em] transition-all ${
                   settings.ratio.label === ratio.label 
-                  ? 'bg-[#121212] text-white shadow-lg' 
-                  : 'text-gray-400 hover:text-gray-600'
+                  ? 'bg-white text-[#121212] shadow-lg' 
+                  : 'text-[#aaa] hover:text-[#eee]'
                 }`}
               >
                 {ratio.label}
@@ -464,7 +464,7 @@ const App: React.FC = () => {
             )}
             <button 
               onClick={() => folderInputRef.current?.click()}
-              className="group relative flex items-center gap-4 bg-gray-50 hover:bg-gray-100 text-gray-500 px-6 py-2.5 rounded-full border border-gray-100 transition-all"
+              className="group relative flex items-center gap-4 bg-[#222] hover:bg-[#2a2a2a] text-[#ccc] px-6 py-2.5 rounded-full border border-[#333] transition-all"
             >
               <FolderOpen size={14} />
               <span className="text-[9px] font-bold uppercase tracking-[0.2em]">Upload Folder</span>
@@ -472,7 +472,7 @@ const App: React.FC = () => {
           </div>
           <button 
             onClick={() => fileInputRef.current?.click()}
-            className="btn-premium group relative flex items-center gap-4 bg-[#121212] text-white px-8 py-2.5 rounded-full shadow-2xl"
+            className="btn-premium group relative flex items-center gap-4 bg-white text-[#121212] px-8 py-2.5 rounded-full shadow-2xl"
           >
             <Plus size={16} className="transition-transform group-hover:rotate-90" />
             <span className="text-[10px] font-bold uppercase tracking-[0.25em]">Add Assets</span>
@@ -501,40 +501,40 @@ const App: React.FC = () => {
         <div className="col-span-12 lg:col-span-3 flex flex-col gap-4 overflow-hidden">
           <div className="flex items-center justify-between px-2 shrink-0">
             <div className="flex items-center gap-3">
-              <History size={14} className="text-gray-300" />
-              <h2 className="text-[9px] font-bold text-gray-400 uppercase tracking-[0.5em]">Studio Collection</h2>
+              <History size={14} className="text-[#888]" />
+              <h2 className="text-[9px] font-bold text-[#aaa] uppercase tracking-[0.5em]">Studio Collection</h2>
             </div>
-            <span className="text-[9px] font-bold text-gray-300 border border-gray-100 px-3 py-0.5 rounded-full">{mediaItems.length}</span>
+            <span className="text-[9px] font-bold text-[#888] border border-[#333] px-3 py-0.5 rounded-full">{mediaItems.length}</span>
           </div>
           
           <div className="flex flex-col gap-3 overflow-y-auto pr-2 custom-scrollbar scroll-smooth flex-1">
             {mediaItems.length === 0 ? (
-              <div className="border border-dashed border-gray-200 rounded-[2rem] p-10 text-center bg-white/40 flex flex-col items-center gap-4">
-                <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-inner border border-gray-50"><Box className="text-gray-100" size={20} /></div>
-                <p className="text-gray-200 text-[9px] font-bold uppercase tracking-[0.4em]">Empty Studio</p>
+              <div className="border border-dashed border-[#444] rounded-[2rem] p-10 text-center bg-white/5 flex flex-col items-center gap-4">
+                <div className="w-10 h-10 bg-[#222] rounded-full flex items-center justify-center shadow-inner border border-[#333]"><Box className="text-[#888]" size={20} /></div>
+                <p className="text-[#666] text-[9px] font-bold uppercase tracking-[0.4em]">Empty Studio</p>
               </div>
             ) : mediaItems.map((item) => (
               <div 
                 key={item.id}
                 onClick={() => setSelectedId(item.id)}
-                className={`group relative cursor-pointer overflow-hidden rounded-[1.25rem] transition-all duration-300 bg-white border shrink-0 ${
+                className={`group relative cursor-pointer overflow-hidden rounded-[1.25rem] transition-all duration-300 bg-[#1a1a1a] border shrink-0 ${
                   selectedId === item.id 
                   ? 'border-sage shadow-md ring-1 ring-sage/10' 
-                  : 'border-gray-50 opacity-80 hover:opacity-100'
+                  : 'border-[#2a2a2a] opacity-80 hover:opacity-100'
                 }`}
               >
                 <div className="relative aspect-[16/10] overflow-hidden">
                    {item.type === 'image' ? (
                     <img src={item.url} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Queue item" />
                   ) : (
-                    <div className="w-full h-full bg-gray-50 flex items-center justify-center">
-                      <Film className="text-gray-200" size={20} />
+                    <div className="w-full h-full bg-[#222] flex items-center justify-center">
+                      <Film className="text-[#666]" size={20} />
                     </div>
                   )}
                   
                   {item.status === 'processing' && (
                     <div className="absolute inset-0 glass flex items-center justify-center">
-                      <Loader2 className="animate-spin text-black" size={18} />
+                      <Loader2 className="animate-spin text-white" size={18} />
                     </div>
                   )}
                   
@@ -545,22 +545,22 @@ const App: React.FC = () => {
                   )}
                 </div>
                 
-                <div className="p-3 flex justify-between items-center bg-white">
+                <div className="p-3 flex justify-between items-center bg-[#1a1a1a]">
                   <div className="flex flex-col gap-0.5 overflow-hidden">
-                    <span className="text-[9px] font-bold text-[#121212] uppercase tracking-wider truncate">
+                    <span className="text-[9px] font-bold text-white uppercase tracking-wider truncate">
                       {item.productName ? `${item.productName}${item.view ? ` (${item.view})` : ''}` : 'Untitled Asset'}
                     </span>
-                    <span className="text-[7px] font-medium text-gray-300 truncate">{item.file.name}</span>
+                    <span className="text-[7px] font-medium text-[#888] truncate">{item.file.name}</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    {item.cropMode === 'smart' ? <Brain size={10} className="text-gray-200" /> : <Frame size={10} className="text-sage" />}
+                    {item.cropMode === 'smart' ? <Brain size={10} className="text-[#666]" /> : <Frame size={10} className="text-sage" />}
                     <button 
                       onClick={(e) => {
                         e.stopPropagation();
                         setMediaItems(prev => prev.filter(i => i.id !== item.id));
                         if (selectedId === item.id) setSelectedId(null);
                       }}
-                      className="p-1 hover:bg-red-50 text-gray-200 hover:text-red-400 rounded-full transition-all"
+                      className="p-1 hover:bg-red-50 text-[#666] hover:text-red-400 rounded-full transition-all"
                     >
                       <Trash2 size={12} />
                     </button>
@@ -571,11 +571,11 @@ const App: React.FC = () => {
           </div>
 
           {mediaItems.length > 0 && (
-            <div className="pt-4 border-t border-gray-100 flex flex-col gap-2 shrink-0">
+            <div className="pt-4 border-t border-[#333] flex flex-col gap-2 shrink-0">
                <button 
                 onClick={handleProcessAll}
                 disabled={isProcessingAll}
-                className="btn-premium w-full py-3.5 bg-[#121212] text-white rounded-xl flex items-center justify-center gap-3 text-[9px] font-bold uppercase tracking-[0.2em] shadow-lg disabled:opacity-50"
+                className="btn-premium w-full py-3.5 bg-white text-[#121212] rounded-xl flex items-center justify-center gap-3 text-[9px] font-bold uppercase tracking-[0.2em] shadow-lg disabled:opacity-50"
               >
                 {isProcessingAll ? (
                   <>
@@ -592,7 +592,7 @@ const App: React.FC = () => {
               {doneCount > 0 && (
                 <button 
                   onClick={downloadZip}
-                  className="w-full py-3 border border-gray-200 bg-white hover:bg-gray-50 rounded-xl flex items-center justify-center gap-3 transition-all text-[9px] font-bold uppercase tracking-[0.2em] text-gray-400"
+                  className="w-full py-3 border border-[#444] bg-[#1a1a1a] hover:bg-[#222] rounded-xl flex items-center justify-center gap-3 transition-all text-[9px] font-bold uppercase tracking-[0.2em] text-[#aaa]"
                 >
                   <Package size={14} />
                   Collect Batch ({doneCount})
@@ -613,41 +613,41 @@ const App: React.FC = () => {
 
         {/* Studio Preview - Center */}
         <div className="col-span-12 lg:col-span-6 flex flex-col h-full overflow-hidden">
-          <div className="bg-white border border-gray-100/50 rounded-[2.5rem] p-6 h-full flex flex-col items-center justify-center relative overflow-hidden shadow-premium">
+          <div className="bg-[#1a1a1a] border border-[#333]/50 rounded-[2.5rem] p-6 h-full flex flex-col items-center justify-center relative overflow-hidden shadow-premium">
             {!selectedMedia ? (
               <div className="text-center space-y-6 max-w-xs animate-reveal">
                 <div className="w-20 h-20 bg-sage/5 rounded-full flex items-center justify-center mx-auto shadow-inner border border-sage/10">
                   <ImageIcon size={28} className="text-sage opacity-40" />
                 </div>
                 <div>
-                  <h3 className="font-serif text-2xl italic tracking-tight mb-2 text-[#121212]">Curate Asset</h3>
-                  <p className="text-gray-400 text-[8px] leading-relaxed uppercase tracking-[0.5em] font-semibold">Select an asset from the collection to initialize the Studio Engine.</p>
+                  <h3 className="font-serif text-2xl italic tracking-tight mb-2 text-white">Curate Asset</h3>
+                  <p className="text-[#aaa] text-[8px] leading-relaxed uppercase tracking-[0.5em] font-semibold">Select an asset from the collection to initialize the Studio Engine.</p>
                 </div>
               </div>
             ) : (
               <div className="w-full h-full flex flex-col items-center justify-center gap-4 overflow-hidden animate-reveal">
                 <div className="w-full flex justify-between items-center px-2 shrink-0">
                   <div className="flex items-center gap-4">
-                    <span className="text-[8px] font-bold uppercase tracking-[0.3em] text-gray-300">Observation Mode</span>
+                    <span className="text-[8px] font-bold uppercase tracking-[0.3em] text-[#888]">Observation Mode</span>
                     {selectedMedia.processedUrl && (
                       <button 
                         onClick={() => setShowComparison(!showComparison)}
                         className={`px-4 py-1 rounded-full text-[7px] font-bold uppercase tracking-widest transition-all ${
-                          showComparison ? 'bg-[#121212] text-white shadow-lg' : 'bg-gray-100 text-gray-400 hover:text-black'
+                          showComparison ? 'bg-white text-[#121212] shadow-lg' : 'bg-[#2a2a2a] text-[#aaa] hover:text-white'
                         }`}
                       >
                         {showComparison ? 'Active View' : 'Compare Original'}
                       </button>
                     )}
                   </div>
-                  <div className="flex items-center gap-2 px-3 py-1.5 bg-[#fdfdfd] rounded-full border border-gray-100 shadow-sm">
-                    <div className={`w-1 h-1 rounded-full ${selectedMedia.status === 'done' ? 'bg-sage' : selectedMedia.status === 'processing' ? 'bg-[#121212] animate-pulse' : 'bg-gray-100'}`}></div>
-                    <span className="text-[7px] font-bold uppercase tracking-[0.3em] text-gray-400">{selectedMedia.status}</span>
+                  <div className="flex items-center gap-2 px-3 py-1.5 bg-[#111] rounded-full border border-[#333] shadow-sm">
+                    <div className={`w-1 h-1 rounded-full ${selectedMedia.status === 'done' ? 'bg-sage' : selectedMedia.status === 'processing' ? 'bg-white animate-pulse' : 'bg-[#2a2a2a]'}`}></div>
+                    <span className="text-[7px] font-bold uppercase tracking-[0.3em] text-[#aaa]">{selectedMedia.status}</span>
                   </div>
                 </div>
 
                 <div 
-                  className="relative w-full max-h-[50vh] bg-[#fcfcfc] rounded-[2rem] shadow-inner border border-gray-100/50 flex items-center justify-center overflow-hidden flex-1"
+                  className="relative w-full max-h-[50vh] bg-[#151515] rounded-[2rem] shadow-inner border border-[#333]/50 flex items-center justify-center overflow-hidden flex-1"
                   style={{ aspectRatio: cropperAspect }}
                 >
                   {selectedMedia.status === 'processing' ? (
@@ -658,32 +658,32 @@ const App: React.FC = () => {
                           <Sparkles size={18} className="text-sage opacity-40" />
                         </div>
                       </div>
-                      <p className="font-serif text-lg italic tracking-widest text-gray-300">Rendering Scene...</p>
+                      <p className="font-serif text-lg italic tracking-widest text-[#888]">Rendering Scene...</p>
                     </div>
                   ) : showComparison ? (
                     <div className="w-full h-full p-6 flex gap-6">
                       <div className="flex-1 flex flex-col gap-3">
-                         <span className="text-[7px] font-bold text-center uppercase tracking-[0.4em] text-gray-300">Source Asset</span>
-                         <div className="flex-1 bg-white rounded-[1.25rem] overflow-hidden flex items-center justify-center border border-gray-50 shadow-sm">
+                         <span className="text-[7px] font-bold text-center uppercase tracking-[0.4em] text-[#888]">Source Asset</span>
+                         <div className="flex-1 bg-[#1a1a1a] rounded-[1.25rem] overflow-hidden flex items-center justify-center border border-[#2a2a2a] shadow-sm">
                             {selectedMedia.type === 'video' ? <video src={selectedMedia.url} className="max-w-full max-h-full" /> : <img src={selectedMedia.url} className="max-w-full max-h-full object-contain" />}
                          </div>
                       </div>
                       <div className="flex-1 flex flex-col gap-3">
                          <span className="text-[7px] font-bold text-center uppercase tracking-[0.4em] text-sage">Studio Optimized</span>
-                         <div className="flex-1 bg-white rounded-[1.25rem] overflow-hidden flex items-center justify-center border border-sage/10 shadow-premium">
+                         <div className="flex-1 bg-[#1a1a1a] rounded-[1.25rem] overflow-hidden flex items-center justify-center border border-sage/10 shadow-premium">
                             {selectedMedia.type === 'video' ? <video src={selectedMedia.processedUrl} className="max-w-full max-h-full" /> : <img src={selectedMedia.processedUrl} className="max-w-full max-h-full object-contain" />}
                          </div>
                       </div>
                     </div>
                   ) : selectedMedia.processedUrl ? (
                     <div className="w-full h-full p-6 animate-reveal">
-                       <div className="w-full h-full flex items-center justify-center overflow-hidden rounded-[1.5rem] bg-white shadow-premium relative group border border-gray-50">
+                       <div className="w-full h-full flex items-center justify-center overflow-hidden rounded-[1.5rem] bg-[#1a1a1a] shadow-premium relative group border border-[#2a2a2a]">
                           {selectedMedia.type === 'video' ? (
                             <video src={selectedMedia.processedUrl} controls className="max-w-full max-h-full" />
                           ) : (
                             <img src={selectedMedia.processedUrl} className="max-w-full max-h-full transition-transform duration-1000 group-hover:scale-[1.02]" alt="Processed preview" />
                           )}
-                          <div className="absolute top-6 left-6 bg-black/90 backdrop-blur px-4 py-1.5 rounded-full text-[7px] font-bold text-white uppercase tracking-[0.3em] shadow-xl opacity-0 group-hover:opacity-100 transition-opacity">
+                          <div className="absolute top-6 left-6 bg-[#0a0a0a]/90 backdrop-blur px-4 py-1.5 rounded-full text-[7px] font-bold text-white uppercase tracking-[0.3em] shadow-xl opacity-0 group-hover:opacity-100 transition-opacity">
                             {getExportFileName(selectedMedia, settings.format)}
                           </div>
                        </div>
@@ -703,7 +703,7 @@ const App: React.FC = () => {
                       </div>
                       <img src={selectedMedia.url} className="max-w-full max-h-full object-contain" alt="Reference" />
                       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
-                         <button onClick={() => setIsCropping(true)} className="btn-premium bg-[#121212] text-white px-8 py-3 rounded-full flex items-center gap-3 text-[9px] font-bold uppercase tracking-[0.2em] shadow-xl border border-white/5">
+                         <button onClick={() => setIsCropping(true)} className="btn-premium bg-white text-[#121212] px-8 py-3 rounded-full flex items-center gap-3 text-[9px] font-bold uppercase tracking-[0.2em] shadow-xl border border-white/5">
                             <Frame size={16} /> Master Framing
                          </button>
                       </div>
@@ -716,14 +716,14 @@ const App: React.FC = () => {
                      <div className="flex gap-3">
                         <button 
                           onClick={() => setMediaItems(prev => prev.map(i => i.id === selectedMedia.id ? { ...i, status: 'idle', processedUrl: undefined } : i))}
-                          className="px-8 py-3 border border-gray-100 bg-white rounded-xl text-[8px] font-bold uppercase tracking-[0.2em] text-gray-400 hover:text-black hover:bg-gray-50 transition-all"
+                          className="px-8 py-3 border border-[#333] bg-[#1a1a1a] rounded-xl text-[8px] font-bold uppercase tracking-[0.2em] text-[#aaa] hover:text-white hover:bg-[#222] transition-all"
                         >
                           Reset Studio
                         </button>
                         <a 
                           href={selectedMedia.processedUrl} 
                           download={getExportFileName(selectedMedia, settings.format)}
-                          className="btn-premium px-10 py-3 bg-[#121212] text-white rounded-xl text-[8px] font-bold uppercase tracking-[0.2em] flex items-center gap-3 shadow-xl"
+                          className="btn-premium px-10 py-3 bg-white text-[#121212] rounded-xl text-[8px] font-bold uppercase tracking-[0.2em] flex items-center gap-3 shadow-xl"
                         >
                           <Download size={16} />
                           Final Asset Export
@@ -733,7 +733,7 @@ const App: React.FC = () => {
                     <div className="flex gap-3">
                        <button 
                         onClick={() => processSingleItem(selectedMedia.id)}
-                        className="btn-premium px-10 py-3 bg-[#121212] text-white rounded-xl text-[9px] font-bold uppercase tracking-[0.2em] flex items-center gap-3 shadow-xl border border-white/5"
+                        className="btn-premium px-10 py-3 bg-white text-[#121212] rounded-xl text-[9px] font-bold uppercase tracking-[0.2em] flex items-center gap-3 shadow-xl border border-white/5"
                       >
                         <Sparkles size={16} className="text-sage" />
                         Analyze & Optimize
@@ -741,7 +741,7 @@ const App: React.FC = () => {
                       {selectedMedia.type === 'image' && (
                         <button 
                           onClick={() => setIsCropping(true)}
-                          className="px-8 py-3 border border-gray-200 text-gray-400 hover:text-black rounded-xl text-[9px] font-bold uppercase tracking-[0.2em] flex items-center gap-3 hover:bg-gray-50 transition-all"
+                          className="px-8 py-3 border border-[#444] text-[#aaa] hover:text-white rounded-xl text-[9px] font-bold uppercase tracking-[0.2em] flex items-center gap-3 hover:bg-[#222] transition-all"
                         >
                           <CropIcon size={16} />
                           Precise Crop
@@ -760,13 +760,13 @@ const App: React.FC = () => {
           {/* Asset Identity Section */}
           <div className="flex flex-col gap-6 shrink-0">
             <div className="flex items-center gap-4 px-2">
-              <div className="p-2 bg-white rounded-lg shadow-sm border border-gray-50"><Tag size={16} className="text-gray-600" /></div>
-              <h2 className="text-[9px] font-bold text-gray-600 uppercase tracking-[0.4em]">Asset Identity</h2>
+              <div className="p-2 bg-[#1a1a1a] rounded-lg shadow-sm border border-[#2a2a2a]"><Tag size={16} className="text-[#eee]" /></div>
+              <h2 className="text-[9px] font-bold text-[#eee] uppercase tracking-[0.4em]">Asset Identity</h2>
             </div>
             
-            <div className="space-y-4 bg-white/50 backdrop-blur-xl p-5 rounded-[1.5rem] border border-gray-100/50">
+            <div className="space-y-4 bg-[#1a1a1a]/50 backdrop-blur-xl p-5 rounded-[1.5rem] border border-[#333]/50">
               <div className="space-y-2">
-                <label className="text-[7px] font-bold text-gray-500 uppercase tracking-[0.2em] px-2 flex items-center gap-2">
+                <label className="text-[7px] font-bold text-[#ccc] uppercase tracking-[0.2em] px-2 flex items-center gap-2">
                   <Type size={10} /> Product Name
                 </label>
                 <input 
@@ -778,12 +778,12 @@ const App: React.FC = () => {
                     setProductName(val);
                     if (selectedMedia) updateItemMeta(selectedMedia.id, 'productName', val);
                   }}
-                  className="w-full p-3 rounded-lg border border-gray-100 bg-white text-[9px] font-bold uppercase tracking-widest outline-none focus:border-sage shadow-sm transition-all disabled:opacity-50 text-gray-800"
+                  className="w-full p-3 rounded-lg border border-[#333] bg-[#1a1a1a] text-[9px] font-bold uppercase tracking-widest outline-none focus:border-sage shadow-sm transition-all disabled:opacity-50 text-white"
                 />
               </div>
 
               <div className="space-y-2">
-                <label className="text-[7px] font-bold text-gray-500 uppercase tracking-[0.2em] px-2 flex items-center gap-2">
+                <label className="text-[7px] font-bold text-[#ccc] uppercase tracking-[0.2em] px-2 flex items-center gap-2">
                   <Palette size={10} /> Color Family
                 </label>
                 <input 
@@ -795,12 +795,12 @@ const App: React.FC = () => {
                     setColorFamily(val);
                     if (selectedMedia) updateItemMeta(selectedMedia.id, 'colorFamily', val);
                   }}
-                  className="w-full p-3 rounded-lg border border-gray-100 bg-white text-[9px] font-bold uppercase tracking-widest outline-none focus:border-sage shadow-sm transition-all disabled:opacity-50 text-gray-800"
+                  className="w-full p-3 rounded-lg border border-[#333] bg-[#1a1a1a] text-[9px] font-bold uppercase tracking-widest outline-none focus:border-sage shadow-sm transition-all disabled:opacity-50 text-white"
                 />
               </div>
 
               <div className="space-y-2">
-                <label className="text-[7px] font-bold text-gray-500 uppercase tracking-[0.2em] px-2 flex items-center gap-2">
+                <label className="text-[7px] font-bold text-[#ccc] uppercase tracking-[0.2em] px-2 flex items-center gap-2">
                   <ImageIcon size={10} /> Image Style
                 </label>
                 <select
@@ -810,7 +810,7 @@ const App: React.FC = () => {
                     setImageStyle(val);
                     if (selectedMedia) updateItemMeta(selectedMedia.id, 'imageStyle', val);
                   }}
-                  className="w-full p-3 rounded-lg border border-gray-100 bg-white text-[9px] font-bold uppercase tracking-widest outline-none focus:border-sage shadow-sm transition-all appearance-none text-gray-800"
+                  className="w-full p-3 rounded-lg border border-[#333] bg-[#1a1a1a] text-[9px] font-bold uppercase tracking-widest outline-none focus:border-sage shadow-sm transition-all appearance-none text-white"
                 >
                   <option value="Product">Product</option>
                   <option value="Lifestyle">Lifestyle</option>
@@ -818,7 +818,7 @@ const App: React.FC = () => {
               </div>
 
               <div className="space-y-2">
-                <label className="text-[7px] font-bold text-gray-500 uppercase tracking-[0.2em] px-2 flex items-center gap-2">
+                <label className="text-[7px] font-bold text-[#ccc] uppercase tracking-[0.2em] px-2 flex items-center gap-2">
                   <LayoutGrid size={10} /> Category
                 </label>
                 <select
@@ -828,7 +828,7 @@ const App: React.FC = () => {
                     setCategory(val);
                     if (selectedMedia) updateItemMeta(selectedMedia.id, 'category', val);
                   }}
-                  className="w-full p-3 rounded-lg border border-gray-100 bg-white text-[9px] font-bold uppercase tracking-widest outline-none focus:border-sage shadow-sm transition-all appearance-none text-gray-800"
+                  className="w-full p-3 rounded-lg border border-[#333] bg-[#1a1a1a] text-[9px] font-bold uppercase tracking-widest outline-none focus:border-sage shadow-sm transition-all appearance-none text-white"
                 >
                   <option value="">Select Category</option>
                   <option value="Bed frame">Bed frame</option>
@@ -853,7 +853,7 @@ const App: React.FC = () => {
               </div>
 
               <div className="space-y-2">
-                <label className="text-[7px] font-bold text-gray-500 uppercase tracking-[0.2em] px-2 flex items-center gap-2">
+                <label className="text-[7px] font-bold text-[#ccc] uppercase tracking-[0.2em] px-2 flex items-center gap-2">
                   <Maximize2 size={10} /> Angle
                 </label>
                 <input 
@@ -865,19 +865,19 @@ const App: React.FC = () => {
                     setAngle(val);
                     if (selectedMedia) updateItemMeta(selectedMedia.id, 'angle', val);
                   }}
-                  className="w-full p-3 rounded-lg border border-gray-100 bg-white text-[9px] font-bold uppercase tracking-widest outline-none focus:border-sage shadow-sm transition-all disabled:opacity-50 text-gray-800"
+                  className="w-full p-3 rounded-lg border border-[#333] bg-[#1a1a1a] text-[9px] font-bold uppercase tracking-widest outline-none focus:border-sage shadow-sm transition-all disabled:opacity-50 text-white"
                 />
               </div>
 
               <div className="space-y-2">
-                <label className="text-[7px] font-bold text-gray-500 uppercase tracking-[0.2em] px-2 flex items-center gap-2">
+                <label className="text-[7px] font-bold text-[#ccc] uppercase tracking-[0.2em] px-2 flex items-center gap-2">
                   <Eye size={10} /> Image View
                 </label>
                 <select
                   disabled={!selectedMedia}
                   value={selectedMedia?.view || ''}
                   onChange={(e) => selectedMedia && updateItemMeta(selectedMedia.id, 'view', e.target.value)}
-                  className="w-full p-3 rounded-lg border border-gray-100 bg-white text-[9px] font-bold uppercase tracking-widest outline-none focus:border-sage shadow-sm transition-all disabled:opacity-50 appearance-none text-gray-800"
+                  className="w-full p-3 rounded-lg border border-[#333] bg-[#1a1a1a] text-[9px] font-bold uppercase tracking-widest outline-none focus:border-sage shadow-sm transition-all disabled:opacity-50 appearance-none text-white"
                 >
                   <option value="">Select View</option>
                   <option value="Front View">Front View</option>
@@ -889,9 +889,9 @@ const App: React.FC = () => {
               </div>
               
               {selectedMedia && (
-                <div className="pt-2 mt-2 border-t border-gray-50 flex flex-col gap-1.5">
-                   <span className="text-[6px] font-bold text-gray-500 uppercase tracking-[0.1em] px-2">Filename Preview:</span>
-                   <div className="bg-gray-50 p-2 rounded-md font-mono text-[7px] text-gray-600 break-all leading-tight border border-gray-100 italic">
+                <div className="pt-2 mt-2 border-t border-[#2a2a2a] flex flex-col gap-1.5">
+                   <span className="text-[6px] font-bold text-[#ccc] uppercase tracking-[0.1em] px-2">Filename Preview:</span>
+                   <div className="bg-[#222] p-2 rounded-md font-mono text-[7px] text-[#eee] break-all leading-tight border border-[#333] italic">
                       {getExportFileName(selectedMedia, settings.format)}
                    </div>
                 </div>
@@ -901,14 +901,14 @@ const App: React.FC = () => {
 
           <div className="flex flex-col gap-6">
             <div className="flex items-center gap-4 px-2">
-              <div className="p-2 bg-white rounded-lg shadow-sm border border-gray-50"><Settings size={16} className="text-gray-600" /></div>
-              <h2 className="text-[9px] font-bold text-gray-600 uppercase tracking-[0.4em]">Parameters</h2>
+              <div className="p-2 bg-[#1a1a1a] rounded-lg shadow-sm border border-[#2a2a2a]"><Settings size={16} className="text-[#eee]" /></div>
+              <h2 className="text-[9px] font-bold text-[#eee] uppercase tracking-[0.4em]">Parameters</h2>
             </div>
 
             <div className="space-y-4">
               <div className="flex justify-between items-center px-2">
-                <label className="text-[8px] font-bold text-gray-500 uppercase tracking-[0.2em]">Target Weight</label>
-                <span className="text-[9px] font-bold text-black uppercase tracking-wider">
+                <label className="text-[8px] font-bold text-[#ccc] uppercase tracking-[0.2em]">Target Weight</label>
+                <span className="text-[9px] font-bold text-white uppercase tracking-wider">
                   {settings.targetFileSizeKb >= 1024 
                     ? `${(settings.targetFileSizeKb / 1024).toFixed(1)} MB` 
                     : `${settings.targetFileSizeKb} KB`}
@@ -928,11 +928,11 @@ const App: React.FC = () => {
             </div>
 
             <div className="space-y-3">
-              <label className="text-[8px] font-bold text-gray-500 uppercase tracking-[0.2em] px-2">Recognition Focus</label>
+              <label className="text-[8px] font-bold text-[#ccc] uppercase tracking-[0.2em] px-2">Recognition Focus</label>
               <select 
                 value={settings.focusSubject}
                 onChange={(e) => setSettings(s => ({ ...s, focusSubject: e.target.value as FocusSubject }))}
-                className="w-full p-3 rounded-lg border border-gray-100 bg-white text-[9px] font-bold uppercase tracking-widest outline-none focus:border-sage shadow-sm appearance-none cursor-pointer text-gray-800"
+                className="w-full p-3 rounded-lg border border-[#333] bg-[#1a1a1a] text-[9px] font-bold uppercase tracking-widest outline-none focus:border-sage shadow-sm appearance-none cursor-pointer text-white"
               >
                 <option value="smart">Universal Logic</option>
                 <option value="carpet">Carpet / Rug (Priority)</option>
@@ -948,7 +948,7 @@ const App: React.FC = () => {
                   <Sparkles size={14} />
                   <span className="text-[8px] font-bold uppercase tracking-[0.2em]">Synthesis Active</span>
                </div>
-               <p className="text-[9px] text-gray-400 leading-relaxed italic font-medium">
+               <p className="text-[9px] text-[#aaa] leading-relaxed italic font-medium">
                  Precision framing engine calibrated for high-end assets.
                </p>
             </div>
@@ -956,18 +956,18 @@ const App: React.FC = () => {
         </div>
       </main>
 
-      <footer className="shrink-0 py-3 px-16 border-t border-gray-100 bg-[#fdfdfd] flex flex-col md:flex-row justify-between items-center gap-4">
+      <footer className="shrink-0 py-3 px-16 border-t border-[#333] bg-[#111] flex flex-col md:flex-row justify-between items-center gap-4">
          <div className="flex flex-col gap-0.5">
-            <span className="text-[#121212] font-serif italic text-lg tracking-tighter">Knot Home <span className="text-gray-300 font-light">Studio</span></span>
-            <p className="text-[6px] font-bold uppercase tracking-[0.5em] text-gray-300">Proprietary Media Engine v2.5</p>
+            <span className="text-white font-serif italic text-lg tracking-tighter">Knot Home <span className="text-[#888] font-light">Studio</span></span>
+            <p className="text-[6px] font-bold uppercase tracking-[0.5em] text-[#888]">Proprietary Media Engine v2.5</p>
          </div>
-         <div className="flex gap-8 text-[7px] font-bold uppercase tracking-[0.3em] text-gray-400">
+         <div className="flex gap-8 text-[7px] font-bold uppercase tracking-[0.3em] text-[#aaa]">
             <span className="flex items-center gap-1.5"><div className="w-1 h-1 rounded-full bg-sage"></div> Rug Integrity Safe</span>
-            <span className="flex items-center gap-1.5"><div className="w-1 h-1 rounded-full bg-black"></div> Ultra Precision</span>
-            <div className="h-4 w-px bg-gray-100 mx-1"></div>
+            <span className="flex items-center gap-1.5"><div className="w-1 h-1 rounded-full bg-white"></div> Ultra Precision</span>
+            <div className="h-4 w-px bg-[#2a2a2a] mx-1"></div>
             <div className="flex items-center gap-1.5">
               <div className="w-1 h-1 rounded-full bg-green-500 animate-pulse"></div>
-              <span className="text-[#121212]">Gemini v3 Optimized</span>
+              <span className="text-white">Gemini v3 Optimized</span>
             </div>
          </div>
       </footer>
