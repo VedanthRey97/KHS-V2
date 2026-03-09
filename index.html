@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Knot Home Studio | Elite Media Engine</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --brand-sage: #9ca68a;
+      --brand-bone: #fcfbf8;
+      --brand-onyx: #121212;
+      --brand-gold: #c5a880;
+      --brand-clay: #4a4a4a;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--brand-bone);
+      color: var(--brand-onyx);
+      -webkit-font-smoothing: antialiased;
+      letter-spacing: -0.01em;
+    }
+    .font-serif {
+      font-family: 'Bodoni Moda', serif;
+    }
+    .bg-sage {
+      background-color: var(--brand-sage);
+    }
+    .text-sage {
+      color: var(--brand-sage);
+    }
+    .border-sage {
+      border-color: var(--brand-sage);
+    }
+    .glass {
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+    }
+    .shadow-premium {
+      box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.08);
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 2px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #e5e5e5;
+      border-radius: 10px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: var(--brand-sage);
+    }
+    input[type="range"] {
+      -webkit-appearance: none;
+      background: #eee;
+      height: 1px;
+    }
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      height: 12px;
+      width: 12px;
+      border-radius: 50%;
+      background: var(--brand-onyx);
+      cursor: pointer;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      border: 2px solid white;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-reveal {
+      animation: fadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .btn-premium {
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .btn-premium:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.1);
+    }
+    .btn-premium:active {
+      transform: translateY(0);
+    }
+
+    /* Cropper Customization */
+    .react-easy-crop_Container {
+      background-color: #0c0c0c !important;
+    }
+    .react-easy-crop_CropArea {
+      border: 1px solid white !important;
+      box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.6) !important;
+    }
+  </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.40.0",
+    "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
+    "jszip": "https://esm.sh/jszip@^3.10.1",
+    "react-easy-crop": "https://esm.sh/react-easy-crop@^5.2.0",
+    "papaparse": "https://esm.sh/papaparse@^5.4.1",
+    "path": "https://esm.sh/path@^0.12.7",
+    "url": "https://esm.sh/url@^0.11.4",
+    "vite": "https://esm.sh/vite@^7.3.1",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.4"
+  }
+}
+</script>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
